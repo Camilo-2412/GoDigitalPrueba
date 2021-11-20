@@ -1,0 +1,15 @@
+<header>
+  <h1 routerLink="">Go Digital Movies</h1>
+  <nav>
+    <a [routerLink]="['/movies/', 'top_rated']">Top Rated</a>
+    <a [routerLink]="['/movies/', 'popular']">Populares</a>
+    <a [routerLink]="['/movies/', 'now_playing']">Novedades</a>
+    <mat-form-field appearance="fill">
+      <mat-label>Nombre</mat-label>
+      <input matInput [(ngModel)]="movieName.name" />
+    </mat-form-field>
+    <button mat-raised-button color="primary" [routerLink]="['movies/search/',movieName.name ]">
+      Buscar
+    </button>
+  </nav>
+</header>

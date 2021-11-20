@@ -1,0 +1,45 @@
+<h1 style="text-align:center" *ngIf='this.type == "now_playing"'>
+  Novedades
+  <h3 >Página: {{this.pagination}}</h3>
+</h1>
+
+<h1 style="text-align:center" *ngIf='this.type == "popular"'>
+  Populares
+  <h3>Página: {{this.pagination}}</h3>
+</h1>
+
+<h1 style="text-align:center" *ngIf='this.type == "top_rated"'>
+  Top Rated  
+  <h3>Página: {{this.pagination}}</h3>
+</h1>
+
+<h1 style="text-align:center" *ngIf='!this.type && !this.name'>
+  Populares
+  <h3>Página: {{this.pagination}}</h3>
+</h1>
+
+<h1 style="text-align:center" *ngIf='this.name'>
+  Busquedas relacionadas con <b>"{{this.name}}"</b>
+  <h3>Página: {{this.pagination}}</h3>
+</h1>
+
+<div class="contenedor">
+  <div class="pelicula" *ngFor="let movie of moviesData">
+    <mat-button [routerLink]="['/movieDetails/', movie.id]">
+      <img
+        class="poster"
+        src="https://image.tmdb.org/t/p/w500/{{ movie.poster_path }}"
+      />
+    </mat-button>
+    <h3 class="titulo">
+      {{ movie.title }}
+    </h3>
+  </div>
+
+ 
+</div>
+
+<div class="paginacion">
+  <button id="btnAnterior" (click)="disminuye()">Anterior</button>
+  <button id="btnSiguiente" (click)="aumento()">Siguiente</button>
+</div>

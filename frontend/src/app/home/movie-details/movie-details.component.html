@@ -1,0 +1,56 @@
+<main class="dev">
+  <aside class="lateral dev">
+    <img
+      src="https://image.tmdb.org/t/p/w500/{{ moviesData.poster_path }}"
+      alt=""
+    />
+
+    <!-- Social -->
+    <a href="#">
+      <span>Correo-e</span>
+    </a>
+    <a href="#">
+      <span>Snapchat</span>
+    </a>
+    <a href="#">
+      <span>Twitter</span>
+    </a>
+  </aside>
+
+  <!-- Contenido -->
+  <section class="contenido dev">
+
+
+    <div class="card">
+        <h1 class="card-header">{{ moviesData.title }}</h1>
+        <div class="card-body">
+          <p class="card-text">{{ moviesData.overview }}.</p>
+          
+
+          <h2>Generos</h2>
+          <ul class="dev">
+            <li *ngFor="let genre of moviesData.genres">{{ genre.name }}</li>
+          </ul>
+          <!-- Thumbnails -->
+          <ul class="dev">
+            <li><b>Fecha de lanzamiento </b> {{ moviesData.release_date }}</li>
+            <li><b>Calificación del público </b> {{ moviesData.vote_average }}</li>
+            <li><b>Cantidad de opiniones </b> {{ moviesData.vote_count }}</li>
+            <li>
+              <b>Presupuesto </b
+              >{{ moviesData.budget | currency: "USD" | lowercase }}
+            </li>
+            <li>
+              <b>Recaudación </b
+              >{{ moviesData.revenue | currency: "USD" | lowercase }}
+            </li>
+            <li>
+              <b>Sitio oficial </b>
+              <a href="{{ moviesData.homepage }}"> {{ moviesData.title }}</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+
+  </section>
+</main>
